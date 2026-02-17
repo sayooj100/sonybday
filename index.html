@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>A Special Surprise for Sony 💖</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&family=Dancing+Script:wght@400..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="loader" class="loader-overlay">
+        <div class="loader-content">
+            <div class="heart-loader"></div>
+            <p>Creating something beautiful...</p>
+        </div>
+    </div>
+
+    <div class="audio-control" id="audioToggle">
+        <button id="muteBtn" aria-label="Toggle music">
+            <span class="mute-icon">🔇</span>
+            <span class="unmute-icon">🔊</span>
+        </button>
+    </div>
+
+    <main id="app">
+        <!-- Page 1: Welcome -->
+        <section id="page-1" class="page active">
+            <div class="container glass">
+                <h1 class="fade-in">Hey Sony, someone made this just for you 💖</h1>
+                <p class="subtext fade-in-delayed">A little journey of love and friendship awaits.</p>
+                <button class="cta-btn pulse" onclick="nextPage(1)">Start the surprise 🎁</button>
+            </div>
+            <div class="bg-elements">
+                <div class="heart"></div>
+                <div class="heart"></div>
+                <div class="heart"></div>
+            </div>
+        </section>
+
+        <!-- Page 2: Birthday Cake -->
+        <section id="page-2" class="page">
+            <div class="container glass">
+                <div class="cake-container">
+                    <div class="cake">
+                        <div class="plate"></div>
+                        <div class="layer layer-bottom"></div>
+                        <div class="layer layer-middle"></div>
+                        <div class="layer layer-top"></div>
+                        <div class="icing"></div>
+                        <div class="drip drip1"></div>
+                        <div class="drip drip2"></div>
+                        <div class="drip drip3"></div>
+                        <div class="candle">
+                            <div class="flame" id="flame"></div>
+                        </div>
+                    </div>
+                </div>
+                <h2>It’s your birthday cake!</h2>
+                <p>Close your eyes and make a wish...</p>
+                <button id="wishBtn" class="cta-btn" onclick="makeWish()">I made a wish ✨</button>
+            </div>
+        </section>
+
+        <!-- Page 3: Photo Flip -->
+        <section id="page-3" class="page">
+            <div class="container">
+                <div class="photo-card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="assets/images/profile.jpg" alt="Memory" class="memory-img">
+                            <p class="instruction">Tap the photo to flip it 💫</p>
+                        </div>
+                        <div class="card-back glass-card">
+                            <div class="message-content">
+                                <p>“One of beautiful gift from universe that came to me is you Sony.</p>
+                                <p>You are the one who taught me what true friendship is.</p>
+                                <p>When you feel sad, my heart becomes silent too.</p>
+                                <p>Our friendship is not simple… it is a very special chapter to me 🤍”</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="cta-btn hidden" id="nextBtn3" onclick="nextPage(3)">Next surprise 🎁</button>
+            </div>
+        </section>
+
+        <!-- Page 4: Hidden Letter -->
+        <section id="page-4" class="page">
+            <div class="container">
+                <div class="envelope-wrapper">
+                    <div class="envelope" onclick="openLetter()">
+                        <div class="flap"></div>
+                        <div class="envelope-back"></div>
+                        <div class="letter">
+                            <div class="letter-text">
+                                <p>“There is no answer for the bond we share. It feels like a wonderful connection.</p>
+                                <p>Even if there is distance between us, I will pray that our connection should be
+                                    always strong.</p>
+                                <p>You are not just my best friend, you are the closest person to my soul 🤍🫠</p>
+                                <p>You are a queen with a very pure heart, but you always try to make me happy when I
+                                    was low.</p>
+                                <p>Your smile 😅 and your words make me connect with you 🤌🫣.</p>
+                                <p>Getting you as my best friend is my biggest gift till end of my life.”</p>
+                            </div>
+                        </div>
+                        <div class="envelope-front"></div>
+                    </div>
+                    <p class="instruction">There’s something I never say out loud...</p>
+                </div>
+                <button class="cta-btn hidden" id="openLetterBtn" onclick="openLetter()">Open the letter ✉️</button>
+                <button class="cta-btn hidden" id="nextBtn4" onclick="nextPage(4)">Next surprise 🎁</button>
+            </div>
+        </section>
+
+        <!-- Page 5: Countdown -->
+        <section id="page-5" class="page">
+            <div class="container glass">
+                <div id="countdown" class="countdown-display">3</div>
+                <div id="birthday-message" class="final-wish hidden">
+                    <h2 class="glow-text">Happy Birthday, Sony 💖</h2>
+                    <div class="wish-details">
+                        <p>May your life be filled only with happiness.</p>
+                        <p>May every one of your dreams come true.</p>
+                        <p>May our friendship remain strong forever.</p>
+                    </div>
+                    <button class="cta-btn pulse" onclick="nextPage(5)">Final surprise 🎊</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 6: Party Poppers Finale -->
+        <section id="page-6" class="page">
+            <div class="container glass">
+                <h3>Pop for surprises! 🎊</h3>
+                <div class="poppers-container">
+                    <button class="popper-btn circular" onclick="pop(this, 0)">1</button>
+                    <button class="popper-btn circular" onclick="pop(this, 1)">2</button>
+                    <button class="popper-btn circular" onclick="pop(this, 2)">3</button>
+                </div>
+                <div id="popper-messages" class="messages-stack"></div>
+
+                <div id="finale" class="finale-reveal hidden">
+                    <h1 class="finale-title">HAPPY BIRTHDAY, SONY ❤️</h1>
+                    <p class="finale-subtext">With love from Somesh.</p>
+                    <div class="actions">
+                        <button class="cta-btn" onclick="replay()">Replay</button>
+                        <button class="cta-btn secondary" onclick="share()">Share</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
